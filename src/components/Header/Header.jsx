@@ -1,7 +1,8 @@
 import React from "react";
-import {Navbar} from "react-bootstrap"
+import {Nav, Navbar} from "react-bootstrap"
 import "./Styles.css"
 import Button from "react-bootstrap/Button";
+import {Link} from "react-router-dom";
 
 export const Header = ({disableSearch, searchTodo}) => {
     const [text, setText] = React.useState("")
@@ -31,7 +32,13 @@ export const Header = ({disableSearch, searchTodo}) => {
                 </Navbar.Brand>
                 <Navbar.Brand>{"Todo APP"}</Navbar.Brand>
 
-                <div className="flex-row d-flex">
+                <Nav>
+                    <Nav.Link to={"/dashboard"}>Dashboard</Nav.Link>
+                    <Nav.Link to={"/remote"}>Remote</Nav.Link>
+                </Nav>
+
+
+                <div className="flex-row d-flex ml-auto">
                     <input placeholder={"Search Todo"}
                            onSubmit={() => searchTodo(text)}
                            onChange={onChangeTodo}

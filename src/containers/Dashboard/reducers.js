@@ -6,7 +6,8 @@ export const localTodoReducer = (state, action) => {
     newState.searchMode = false
     switch (action.type) {
         case ACTION_TYPES.ADD_TODO:
-            newState.todoList = [...newState.todoList, action.payload]
+            const todo = {title: action.payload, id: newState.todoList.length}
+            newState.todoList = [...newState.todoList, todo]
             break
         case ACTION_TYPES.REMOVE_TODO:
             const arr = [...newState.todoList]

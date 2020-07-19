@@ -33,8 +33,12 @@ export const Header = ({disableSearch, searchTodo}) => {
                 <Navbar.Brand>{"Todo APP"}</Navbar.Brand>
 
                 <Nav>
-                    <Nav.Link to={"/dashboard"}>Dashboard</Nav.Link>
-                    <Nav.Link to={"/remote"}>Remote</Nav.Link>
+                    <Nav.Link>
+                        <Link to={"/dashboard"}>Dashboard</Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                        <Link to={"/remote"}>Remote</Link>
+                    </Nav.Link>
                 </Nav>
 
 

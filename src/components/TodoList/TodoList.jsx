@@ -1,5 +1,6 @@
 import React from "react";
 import {Button, ListGroup} from "react-bootstrap"
+import {TodoItem} from "../TodoItem";
 
 export const TodoList = ({todos, removeTodo, clearAllTodos}) => {
 
@@ -15,14 +16,11 @@ export const TodoList = ({todos, removeTodo, clearAllTodos}) => {
             <div className="border-primary border p-2">
                 <Button className="mb-3" variant="danger" onClick={clearAllTodos}>{"clear"}</Button>
                 <ListGroup>
-                    {todos.map((value, index) => (
-                        <ListGroup.Item key={`${value}-${index}`}>
-                            <div className="d-flex flex-row justify-content-between">
-                                <span>{`${index+1}. ${value}`}</span>
-                                <Button onClick={() => removeTodo(index)}>Delete</Button>
-                            </div>
-                        </ListGroup.Item>
-                    ))}
+                    {todos.map((value, index) => (<TodoItem title={value.title}
+                                                            id={value.id}
+                                                            index={index}
+                                                            removeTodo={removeTodo}
+                    />))}
                 </ListGroup>
             </div>
         )

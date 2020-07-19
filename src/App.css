@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+.dashboardContainer{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}

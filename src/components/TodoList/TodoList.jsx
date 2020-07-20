@@ -17,6 +17,7 @@ export const TodoList = ({todos, removeTodo, clearAllTodos}) => {
                 <Button className="mb-3" variant="danger" onClick={clearAllTodos}>{"clear"}</Button>
                 <ListGroup>
                     {todos.map((value, index) => (<TodoItem title={value.title}
+                                                            key={index}
                                                             id={value.id}
                                                             index={index}
                                                             removeTodo={removeTodo}

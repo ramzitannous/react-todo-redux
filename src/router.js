@@ -1,28 +1,41 @@
 import React from "react";
-import {BrowserRouter, Route, Switch} from "react-router-dom"
+import {BrowserRouter, Route, Redirect} from "react-router-dom"
 import {Dashboard} from "./containers/Dashboard";
 import {RemoteTodo} from "./containers/RemoteTodo";
+import {Login} from "./containers/Login";
+import { useSelector } from "react-redux";
 
 const routes = [
     {
-        path: "/dashboard",
-        component: Dashboard
+        path: ["/dashboard", "/"],
+        component: Dashboard,
+        privateRoute: true
     },
     {
         path: "/remote",
-        component: RemoteTodo
-
+        component: RemoteTodo,
+        privateRoute: true
+    },
+    {
+        path: "/login",
+        component: Login,
+        privateRoute: false
     }
-
 ]
-export const AppRouter = () => {
+
+
+export const AppRouterContainer = () => {
+    const loggedIn = useSelector(state => state.login.loggedIn);
+
     return (
         <BrowserRouter>
-            <Switch>
-                {routes.map(({path, component}) => (
-                    <Route path={path} component={component} key={path} />
-                ))}
-            </Switch>
+                {routes.map(({path, component, privateRoute}) => {
+                    const route = <Route exact path={path} component={component} key={path} />
+                    if(!privateRoute || loggedIn) {
+                        return route;
+                    }
+                    return <Redirect to={"login"}/>
+                })}
         </BrowserRouter>
     )
 }

@@ -18,7 +18,7 @@ export const localTodoReducer = (state, action) => {
             newState.todoList = []
             break
         case ACTION_TYPES.SEARCH_TODO:
-            newState.filteredList = newState.todoList.filter(todo => todo === action.payload)
+            newState.filteredList = newState.todoList.filter(todo => todo.title === action.payload)
             newState.searchMode = true
             break
         case ACTION_TYPES.DISABLE_SEARCH:

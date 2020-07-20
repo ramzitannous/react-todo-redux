@@ -3,10 +3,14 @@ import {Nav, Navbar} from "react-bootstrap"
 import "./Styles.css"
 import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {LOGIN_ACTIONS} from "../../containers/Login/actions";
+import { useHistory } from "react-router-dom"
 
 export const Header = ({disableSearch, searchTodo}) => {
     const [text, setText] = React.useState("")
-
+    const dispatch = useDispatch()
+    const history = useHistory()
 
     React.useEffect(() => {
         if (text.length === 0) {
@@ -17,6 +21,12 @@ export const Header = ({disableSearch, searchTodo}) => {
     const onChangeTodo = (event) => {
         setText(event.target.value)
 
+    }
+
+    const logOut = () => {
+        dispatch({type: LOGIN_ACTIONS.LOGOUT})
+        localStorage.clear()
+        history.replace("/login")
     }
 
     return (
@@ -50,11 +60,17 @@ export const Header = ({disableSearch, searchTodo}) => {
                            className={"searchInput form-control"}/>
 
                     <Button
-                        className={"searchBtn"}
                         onClick={() => searchTodo(text)}
                         disabled={text.length === 0}
                     >
                         {"Search"}
+                    </Button>
+
+                    <Button
+                        className="ml-3"
+                        onClick={logOut}
+                    >
+                        {"LogOut"}
                     </Button>
                 </div>
             </Navbar>

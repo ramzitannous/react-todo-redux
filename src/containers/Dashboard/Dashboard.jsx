@@ -8,7 +8,8 @@ import {connect} from "react-redux";
 const DashboardContainer = (props) => {
     return (
         <div>
-            <Header disableSearch={props.disableSearch} searchTodo={props.searchTodo}/>
+            <Header disableSearch={props.disableSearch} searchTodo={props.searchTodo}
+                    username={props.username}/>
             <AddTodo addTodo={props.addTodo}/>
             <TodoList clearAllTodos={props.clearAllTodos} removeTodo={props.removeTodo}
                       todos={props.todos}/>
@@ -16,9 +17,10 @@ const DashboardContainer = (props) => {
     )
 }
 
-const mapStates = ({localTodo}) => {
+const mapStates = ({localTodo, login}) => {
     return {
-        todos: localTodo.searchMode ? localTodo.filteredList: localTodo.todoList
+        todos: localTodo.searchMode ? localTodo.filteredList: localTodo.todoList,
+        username: login.username
     }
 }
 

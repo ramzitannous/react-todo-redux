@@ -14,7 +14,7 @@ export const Login = () => {
 
     React.useEffect(() => {
         if(getLogged()) {
-            dispatch({type: LOGIN_ACTIONS.LOGIN})
+            dispatch(LOGIN_ACTIONS.LOGIN(""))
             history.replace("/dashboard")
         }
     }, [])
@@ -22,7 +22,7 @@ export const Login = () => {
     const login = () => {
         if (username === "ramzi" && password === "1234") {
             setError(false)
-            dispatch({type: LOGIN_ACTIONS.LOGIN})
+            dispatch(LOGIN_ACTIONS.LOGIN(username))
             setLogged()
             history.replace("/dashboard")
         } else {

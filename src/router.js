@@ -29,12 +29,12 @@ export const AppRouterContainer = () => {
 
     return (
         <BrowserRouter>
-                {routes.map(({path, component, privateRoute}) => {
-                    const route = <Route exact path={path} component={component} key={path} />
+                {routes.map(({path, component, privateRoute}, index) => {
+                    const route = <Route exact key={`${path}-${index}`} path={path} component={component} />
                     if(!privateRoute || loggedIn) {
                         return route;
                     }
-                    return <Redirect to={"login"}/>
+                    return <Redirect to={"login"} key={`${path}-${index}`}/>
                 })}
         </BrowserRouter>
     )

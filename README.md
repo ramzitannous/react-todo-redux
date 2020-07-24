@@ -1,5 +1,9 @@
 ## React Todo App
-React Todo example app using react-redux
+React Todo app
+
+## Libraries
+    1. react-redux
+    2. react-router-dom
 
 ## Available Scripts
 

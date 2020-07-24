@@ -1,16 +1,9 @@
-import {LOGIN_ACTIONS} from "./actions";
+import {getLogged, LOGIN_ACTIONS} from "./actions";
+import {makeReducer} from "redux-toolbelt"
 
-export const loginReducer = (state, action) => {
-    const newState = Object.assign({}, state)
-    switch (action.type) {
-        case LOGIN_ACTIONS.LOGIN:
-            newState.loggedIn = true
-            break
-        case LOGIN_ACTIONS.LOGOUT:
-            newState.loggedIn = false
-            break
-        default:
-            break
-    }
-    return newState
-}
+export const loginReducer = makeReducer({
+    [LOGIN_ACTIONS.LOGIN.TYPE]: (state, {payload}) => ({...state, loggedIn: true, username: payload.username}),
+    [LOGIN_ACTIONS.LOGOUT.TYPE]: (state, _) => ({...state, loggedIn: false, username: null}),
+}, {
+    defaultState: {loggedIn: getLogged()}
+})

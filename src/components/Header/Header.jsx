@@ -1,11 +1,10 @@
 import React from "react";
-import {Nav, Navbar} from "react-bootstrap"
+import {Nav, Navbar, Button } from "react-bootstrap"
 import "./Styles.css"
-import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {LOGIN_ACTIONS} from "../../containers/Login/actions";
 import { useHistory } from "react-router-dom"
+import {LOGIN_ACTIONS} from "../../containers/Login/actions";
 
 export const Header = ({disableSearch, searchTodo}) => {
     const [text, setText] = React.useState("")
@@ -24,7 +23,7 @@ export const Header = ({disableSearch, searchTodo}) => {
     }
 
     const logOut = () => {
-        dispatch({type: LOGIN_ACTIONS.LOGOUT})
+        dispatch(LOGIN_ACTIONS.LOGOUT())
         localStorage.clear()
         history.replace("/login")
     }
@@ -43,12 +42,8 @@ export const Header = ({disableSearch, searchTodo}) => {
                 <Navbar.Brand>{"Todo APP"}</Navbar.Brand>
 
                 <Nav>
-                    <Nav.Link>
-                        <Link to={"/dashboard"}>Dashboard</Link>
-                    </Nav.Link>
-                    <Nav.Link>
-                        <Link to={"/remote"}>Remote</Link>
-                    </Nav.Link>
+                    <Link to={"/dashboard"} className="nav-link">Dashboard</Link>
+                   <Link to={"/remote"} className="nav-link">Remote</Link>
                 </Nav>
 
 

@@ -12,6 +12,14 @@ https://ramzitannous.github.io/react-todo/
  5. Fetch remote todos
  6. Search todos
  
+
+**ScreenShots**
+<div style="float: left">
+<img src="./screenshots/1.png" height="240px" width="130px">
+<img src="./screenshots/2.png" height="240px" width="130px">
+<img src="./screenshots/3.png" height="240px" width="130px">
+</div>
+ 
 ## Libraries  
  1. react-redux 
  2. react-router-dom  

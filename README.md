@@ -14,12 +14,10 @@ https://ramzitannous.github.io/react-todo/
  
 
 **ScreenShots**
-<div style="float: left">
 <img src="./screenshots/1.png" height="600px" width="300px">
 <img src="./screenshots/2.png" height="600px" width="300px">
 <img src="./screenshots/3.png" height="600px" width="300px">
-</div>
- 
+
 ## Libraries  
  1. react-redux 
  2. react-router-dom  

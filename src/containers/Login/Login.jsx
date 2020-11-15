@@ -3,6 +3,7 @@ import React from "react";
 import {useDispatch} from "react-redux";
 import {getLogged, LOGIN_ACTIONS, setLogged} from "./actions";
 import { useHistory } from "react-router-dom"
+import LoginImg from "./logo192.png";
 
 export const Login = () => {
     const [username, setUsername] = React.useState("")
@@ -43,16 +44,16 @@ export const Login = () => {
             }
 
             <Form className="d-flex flex-column justify-content-center align-items-center border border-primary p-5">
-                <img src="/logo192.png"/>
+                <img src={LoginImg}/>
                 <Form.Group>
-                    <Form.Label>Username</Form.Label>
+                    <Form.Label>Username (ramzi)</Form.Label>
                     <Form.Control value={username} type="username"
                                   onChange={e => setUsername(e.target.value)}
                                   placeholder="Enter Username" />
                 </Form.Group>
 
                 <Form.Group>
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Password (1234)</Form.Label>
                     <Form.Control  value={password} type="password"
                                    onChange={e => setPassword(e.target.value)}
                                    onSubmit={login}

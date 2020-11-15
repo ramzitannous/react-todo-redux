@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import { useHistory } from "react-router-dom"
 import {LOGIN_ACTIONS} from "../../containers/Login/actions";
+import Img from "./logo512.png";
 
 export const Header = ({disableSearch, searchTodo}) => {
     const [text, setText] = React.useState("")
@@ -33,7 +34,7 @@ export const Header = ({disableSearch, searchTodo}) => {
             <Navbar bg="light" >
                 <Navbar.Brand href="#home">
                     <img
-                        src="/logo512.png"
+                        src={Img}
                         width="30"
                         height="30"
                         className="d-inline-block align-top"

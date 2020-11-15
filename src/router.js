@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, Route, Redirect} from "react-router-dom"
+import {Route, Redirect, HashRouter} from "react-router-dom"
 import {Dashboard} from "./containers/Dashboard";
 import {RemoteTodo} from "./containers/RemoteTodo";
 import {Login} from "./containers/Login";
@@ -28,7 +28,7 @@ export const AppRouterContainer = () => {
     const loggedIn = useSelector(state => state.login.loggedIn);
 
     return (
-        <BrowserRouter>
+        <HashRouter basename="/">
                 {routes.map(({path, component, privateRoute}, index) => {
                     const route = <Route exact key={`${path}-${index}`} path={path} component={component} />
                     if(!privateRoute || loggedIn) {
@@ -36,6 +36,6 @@ export const AppRouterContainer = () => {
                     }
                     return <Redirect to={"login"} key={`${path}-${index}`}/>
                 })}
-        </BrowserRouter>
+        </HashRouter>
     )
 }

@@ -15,8 +15,8 @@ https://ramzitannous.github.io/react-todo/
 
 **ScreenShots**
 <img src="./screenshots/1.png" height="600px">
-<img src="./screenshots/2.png">
-<img src="./screenshots/3.png">
+<img src="./screenshots/2.png" height="600px">>
+<img src="./screenshots/3.png" height="600px">>
 
 ## Libraries  
  1. react-redux 
